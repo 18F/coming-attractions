@@ -1,0 +1,12 @@
+{
+  "name": "@18F/coming-attractions",
+  "version": "1.0.0",
+  "description": "For those moments when you need to redirect traffic to a static site for any number of reasons that share the same thing in common, alerting your users in a quick and easy way during an incident response. The incident could be scheduled downtime, the lifetime of your application abruptly ends, or your service is on fire and you'd like to let your users have more information than a blank page or application error page.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Roger Steve Ruiz <roger.ruiz@gsa.gov>",
+  "license": "CC0-1.0"
+}
