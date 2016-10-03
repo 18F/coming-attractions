@@ -1,0 +1,8 @@
+---
+applications:
+- name: # name of the splash page application
+buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+memory: 128M
+routes:
+  - route: # a shared route to your application, this is important for `cf scaleover` to work properly
+  - route: # a specific route to your splash page in case you'd like to link to it directly.
