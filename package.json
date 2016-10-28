@@ -2,15 +2,25 @@
   "name": "@18F/coming-attractions",
   "version": "1.0.0",
   "description": "For those moments when you need to redirect traffic to a static site for any number of reasons that share the same thing in common, alerting your users in a quick and easy way during an incident response. The incident could be scheduled downtime, the lifetime of your application abruptly ends, or your service is on fire and you'd like to let your users have more information than a blank page or application error page.",
-  "main": "index.js",
+  "main": "package.json",
   "config": {
     "base_url": "https://coming-attractions.apps.cloud.gov/",
-    "page_title": "Coming Attractions"
+    "page_title": "Coming Attractions",
+    "app_name": "coming-attractions",
+    "app_route_main": "coming-attractions.apps.cloud.gov",
+    "app_route_splash": "coming-attractions-static.apps.cloud.gov",
+    "install_scaleover": true
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/18F/coming-attractions"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "./source/cf/install-cf-plugins.sh",
-    "deploy": "./source/deploy.sh"
+    "preinstall": "npm run install-scaleover && npm run generate-templates",
+    "deploy": "npm run generate-templates && ./source/deploy.sh",
+    "install-scaleover": "./source/cf/install-cf-plugins.sh",
+    "generate-templates": "./source/generate.sh"
   },
   "keywords": [],
   "author": "Roger Steve Ruiz <roger.ruiz@gsa.gov>",
