@@ -1,7 +1,11 @@
 #!/bin/bash
 
-set -u
 set -e
+
+if [ $npm_package_config_install_scaleover == false ]; then
+  echo "Skipping installation of scaleover"
+  exit 0
+fi
 
 cf_path="$(which cf)"
 
