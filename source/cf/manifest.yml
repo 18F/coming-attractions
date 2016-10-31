@@ -1,10 +1,11 @@
 ---
 applications:
-  - name: {{npm_package_config_app_name}}
+  - name: {{app_name}}
     buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
     memory: 128M
     path: public/
     command: null
     routes:
-      - route: {{npm_package_config_app_route_main}}
-      - route: {{npm_package_config_app_route_splash}}
+      {{#app_routes}}
+      - route: {{.}}
+      {{/app_routes}}
