@@ -2,7 +2,7 @@
 
 set -e
 
-if [ $TRAVIS ]
+if [ -n $TRAVIS ]
 then
   echo "Skipping installation of scaleover"
   exit 1
