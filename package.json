@@ -19,7 +19,8 @@
   },
   "scripts": {
     "test": "tap test/**/*test*.js",
-    "preinstall": "npm run install-scaleover && npm run generate-templates",
+    "preinstall": "npm run install-scaleover",
+    "postinstall": "npm run generate-templates",
     "deploy": "npm run generate-templates && cf push -f manifest.yml",
     "install-scaleover": "./source/cf/install-cf-plugins.sh",
     "generate-templates": "node ./lib/generate"
