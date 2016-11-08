@@ -1,5 +1,7 @@
 # Coming Attractions
 
+[![Build Status](https://travis-ci.org/18F/coming-attractions.svg?branch=master)](https://travis-ci.org/18F/coming-attractions)
+
 For those moments when you need to redirect traffic to a static site for any
 number of reasons that share the same thing in common, _alerting your users in a
 quick and easy way during an incident response_. The incident could be scheduled
@@ -53,6 +55,12 @@ zero-downtime version and the manual no-frills way. The choice between the two
 is easily made by answering the following question.
 
 > Is this a scheduled downtime issue?
+
+## Continuous Integration
+
+This project is tested with Travis-CI. The current versions of node that are
+being tested are the `latest`, `6.x`, and `5.x`. Please see the `.travis.yml` at
+the root of this repository for more info.
 
 ## Dependencies
 
