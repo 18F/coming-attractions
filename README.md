@@ -56,6 +56,12 @@ is easily made by answering the following question.
 
 > Is this a scheduled downtime issue?
 
+## Continuous Integration
+
+This project is tested with Travis-CI. The current versions of node that are
+being tested are the `latest`, `6.x`, and `5.x`. Please see the `.travis.yml` at
+the root of this repository for more info.
+
 ## Dependencies
 
 This project has dependencies outlined in [the `package.json` file](package.json)
