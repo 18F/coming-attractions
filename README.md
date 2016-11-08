@@ -1,5 +1,7 @@
 # Coming Attractions
 
+[![Build Status](https://travis-ci.org/18F/coming-attractions.svg?branch=master)](https://travis-ci.org/18F/coming-attractions)
+
 For those moments when you need to redirect traffic to a static site for any
 number of reasons that share the same thing in common, _alerting your users in a
 quick and easy way during an incident response_. The incident could be scheduled
