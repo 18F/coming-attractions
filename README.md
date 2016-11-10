@@ -2,6 +2,20 @@
 
 [![Build Status](https://travis-ci.org/18F/coming-attractions.svg?branch=master)](https://travis-ci.org/18F/coming-attractions)
 
+<pre><code style="text-align:center;">******************************************************************
+******************************************************************
+***                                                            ***
+***                _   _          o        _,                  ***
+***               /   / \_/|/|/|  | /|/|  / |                  ***
+***               \__/\_/  | | |_/|/ | |_/\/|/                 ***
+***          _, _|__|_  ,_   _,   _ _|_ o  (|        ,         ***
+***         / |  |  |  /  | / |  /   |  | / \_/|/|  / \_       ***
+***         \/|_/|_/|_/   |/\/|_/\__/|_/|/\_/  | |_/ \/        ***
+***                                                            ***
+******************************************************************
+************* A #g-devops & #g-frontend collaboration ************
+</code></pre>
+
 For those moments when you need to redirect traffic to a static site for any
 number of reasons that share the same thing in common, _alerting your users in a
 quick and easy way during an incident response_. The incident could be scheduled
@@ -12,9 +26,9 @@ application error page.
 ## Technologies used
 
 - [Node](https://nodejs.org) for development.
-- [Cloud.gov](https://cloud.gov) for deployment.
-- [scaleover-plugin](https://github.com/krujos/scaleover-plugin) for traffic
-  routing _if necessary_.
+- [`cf-cli` :cloud:.gov](https://cloud.gov) for deployment.
+    - [scaleover-plugin](https://github.com/krujos/scaleover-plugin) for traffic
+      routing.
 
 ### History
 
@@ -48,13 +62,98 @@ changes, this project is considered more of a starting point. Any new features
 may be copied manually into the _"forked"_ repository and will be additions
 rather than modifications of existing code.
 
+### Recreating your application shell
+
+> TODO documentation on designing an application shell based on your current
+> application. #g-frontend help wanted
+
+### Considering page size and dependencies
+
+> TODO Talk about what the critical CSS and JS for the application should be
+> so that Coming Attraction pages load quick and fast. #g-frontend help wanted
+> Analytics or even Ethnio payloads might be interesting to include here.
+
 ## Deployment
 
 Deploying this application can be done in one of two ways, the recommended
-zero-downtime version and the manual no-frills way. The choice between the two
-is easily made by answering the following question.
+scale-over version and the manual straight-forward way. The choice between the
+two is easily made by answering the following question.
 
 > Is this a scheduled downtime issue?
+
+The configuration around Coming Attractions is within the `package.json` file
+within the `"config": {}` object.
+
+```json
+"config": {
+    "page_title": "<PAGE_TITLE>",
+    "app_name": "<APPLICATION_NAME>",
+    "ca_app_name": "<CA_APPLICATION_NAME>",
+    "app_routes": [
+      "<ROUTE_FOR_APPLICATION_NAME>",
+      "<ROUTE_FOR_CA_APPLICATION_NAME>"
+    ],
+    "install_scaleover": "Boolean to determin whether or not to install cf scaleover, false by default.",
+    "sleep": "Boolean to determine whether Coming Attractions deploys in a dormant state, true by default."
+},
+```
+
+### Manual bespoke deployments
+
+Sometimes downtime isn't scheduled and your team wants a quick and repeatable
+way to deploy Coming Attractions. These steps can deploy the contents of the
+`./source/content/message.md` and `./source/template/layout.html.mo` to
+:cloud:.gov with optional scale-over functionality.
+
+### As a dormant deployment
+
+The best use for Coming Attractions is to deploy it into your production space
+in https://cloud.gov as a dormant application. This will allow your team to
+leverage the scale-over functionality in a repeatable way with very little steps.
+
+To deploy it in a dormant state ensure that the `"sleep": true` configuration is
+set. This will deploy Coming Attractions with the `--no-start` command. You can
+then deploy Coming Attractions with the following command.
+
+```shell
+npm run deploy
+```
+
+### Automating scheduled downtime windows
+
+Assuming that you are using continuous delivery strategies such as Travis-CI or
+CircleCI, it's very easy to leverage the scale-over functionality during
+deployments which can affect your system's uptime. Such scenarios can vary
+between applications but include:
+
+- Database migrations
+- Standard `cf push` deployments
+- Penetration testing
+- OWASP Zap scanning
+
+This deployment strategy runs before a deployment which can cause downtime and
+is planned. In future versions, the scale-over functionality will be capable of
+monitoring the heartbeat of your application.
+
+#### Deploying with scale-over
+
+Ensure that the `cf scaleover` plugin is installed properly before your
+deployment begins. You can copy the `install-cf-plugins.sh` file into your
+project that is going to begin unscheduled maintenance.
+
+```shell
+# After installing cf-cli`
+./source/cf/install-cf-plugins.sh
+# After authenticating with the API via cf login
+cf scaleover <EXPERIENCING_DOWNTIME_APP> <COMING_ATTRACTIONS_APP> 2s
+```
+
+This will scale traffic over from all instances between
+`<EXPERIENCING_DOWNTIME_APP>` and `<COMING_ATTRACTIONS_APP>` over the course of
+two seconds. Once that's complete, your deployment can continue and users will
+be properly routed to Coming Attractions. Once the work is done, the `cf
+scaleover` command can be reversed and Coming Attractions will remain dormant on
+:cloud:.gov.
 
 ## Continuous Integration
 

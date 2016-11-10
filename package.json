@@ -33,14 +33,15 @@
     }
   },
   "config": {
-    "base_url": "https://coming-attractions.apps.cloud.gov/",
-    "page_title": "Coming Attractions Node",
-    "app_name": "coming-attractions-node",
+    "page_title": "We're sorry, My Custom Downtime App is currently down.",
+    "app_name": "my-custom-downtime-app",
+    "ca_app_name": "coming-attractions",
     "app_routes": [
-      "coming-attractions-node.apps.cloud.gov",
-      "coming-attractions-static-node.apps.cloud.gov"
+      "my-custom-downtime-app.apps.cloud.gov",
+      "my-custom-downtime-app-ca.apps.cloud.gov"
     ],
-    "install_scaleover": true
+    "install_scaleover": false,
+    "sleep": true
   },
   "repository": {
     "type": "git",
@@ -51,12 +52,15 @@
     "preinstall": "npm run install-scaleover",
     "postinstall": "npm run generate-templates",
     "lint": "eslint test/**/*.js lib/**/*.js",
-    "deploy": "npm run generate-templates && cf push -f manifest.yml",
+    "deploy": "npm run generate-templates && ./source/cf/deploy-to-cf.sh",
     "install-scaleover": "./source/cf/install-cf-plugins.sh",
     "generate-templates": "node ./lib/generate"
   },
   "keywords": [],
-  "author": "Roger Steve Ruiz <roger.ruiz@gsa.gov>",
+  "contributors": [
+    "Roger Steve Ruiz <roger.ruiz@gsa.gov>",
+    "Gilbert Morgan <gilbert.morgan@gsa.gov>"
+  ],
   "license": "CC0-1.0",
   "devDependencies": {
     "eslint": "^3.9.1",
