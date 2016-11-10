@@ -1,0 +1,19 @@
+# Ignore generated files
+public/
+manifest.yml
+
+# OS and Editor files
+.DS_Store
+*.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+.svn
+.idea
+
+# Node modules
+node_modules/
+node_debug.log
+
+# Ignore fun directories
+tmp/
