@@ -57,7 +57,10 @@
     "generate-templates": "node ./lib/generate"
   },
   "keywords": [],
-  "author": "Roger Steve Ruiz <roger.ruiz@gsa.gov>",
+  "contributors": [
+    "Roger Steve Ruiz <roger.ruiz@gsa.gov>",
+    "Gilbert Morgan <gilbert.morgan@gsa.gov>"
+  ],
   "license": "CC0-1.0",
   "devDependencies": {
     "eslint": "^3.9.1",
