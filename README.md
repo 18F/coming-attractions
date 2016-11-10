@@ -133,7 +133,7 @@ between applications but include:
 
 This deployment strategy runs before a deployment which can cause downtime and
 is planned. In future versions, the scale-over functionality will be capable of
-monitor the heartbeat of your application.
+monitoring the heartbeat of your application.
 
 #### Deploying with scale-over
 
@@ -149,7 +149,7 @@ cf scaleover <EXPERIENCING_DOWNTIME_APP> <COMING_ATTRACTIONS_APP> 2s
 ```
 
 This will scale traffic over from all instances between
-`<EXPERIENCING_DOWNTIME_APP>` and `<COMMING_ATTRACTIONS_APP>` over the course of
+`<EXPERIENCING_DOWNTIME_APP>` and `<COMING_ATTRACTIONS_APP>` over the course of
 two seconds. Once that's complete, your deployment can continue and users will
 be properly routed to Coming Attractions. Once the work is done, the `cf
 scaleover` command can be reversed and Coming Attractions will remain dormant on
