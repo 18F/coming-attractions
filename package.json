@@ -33,14 +33,15 @@
     }
   },
   "config": {
-    "base_url": "https://coming-attractions.apps.cloud.gov/",
-    "page_title": "Coming Attractions Node",
-    "app_name": "coming-attractions-node",
+    "page_title": "We're sorry, My Custom Downtime App is currently down.",
+    "app_name": "my-custom-downtime-app",
+    "ca_app_name": "coming-attractions",
     "app_routes": [
-      "coming-attractions-node.apps.cloud.gov",
-      "coming-attractions-static-node.apps.cloud.gov"
+      "my-custom-downtime-app.apps.cloud.gov",
+      "my-custom-downtime-app-ca.apps.cloud.gov"
     ],
-    "install_scaleover": true
+    "install_scaleover": false,
+    "sleep": true
   },
   "repository": {
     "type": "git",
