@@ -51,7 +51,7 @@
     "preinstall": "npm run install-scaleover",
     "postinstall": "npm run generate-templates",
     "lint": "eslint test/**/*.js lib/**/*.js",
-    "deploy": "npm run generate-templates && cf push -f manifest.yml",
+    "deploy": "npm run generate-templates && ./source/cf/deploy-to-cf.sh",
     "install-scaleover": "./source/cf/install-cf-plugins.sh",
     "generate-templates": "node ./lib/generate"
   },
