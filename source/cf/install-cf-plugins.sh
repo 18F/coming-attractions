@@ -2,6 +2,12 @@
 
 set -e
 
+if [ -n $TRAVIS ]
+then
+  echo "Skipping installation of scaleover"
+  exit 0
+fi
+
 if [ $npm_package_config_install_scaleover == false ]; then
   echo "Skipping installation of scaleover"
   exit 0
