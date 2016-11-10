@@ -47,7 +47,7 @@
     "url": "https://github.com/18F/coming-attractions"
   },
   "scripts": {
-    "test": "tap test/**/*test*.js",
+    "test": "npm run lint && tap test/**/*test*.js",
     "preinstall": "npm run install-scaleover",
     "postinstall": "npm run generate-templates",
     "lint": "eslint test/**/*.js lib/**/*.js",
