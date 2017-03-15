@@ -33,15 +33,14 @@
     }
   },
   "config": {
-    "page_title": "We're sorry, My Custom Downtime App is currently down.",
-    "app_name": "my-custom-downtime-app",
-    "ca_app_name": "coming-attractions",
+    "page_title": "cloud.gov",
+    "app_name": "coming-attractions-sandbox-destruction-app",
+    "ca_app_name": "coming-attractions-sandbox-destruction",
     "app_routes": [
-      "my-custom-downtime-app.apps.cloud.gov",
-      "my-custom-downtime-app-ca.apps.cloud.gov"
+      "coming-attractions-sandbox-destruction.app.cloud.gov"
     ],
     "install_scaleover": false,
-    "sleep": true
+    "sleep": false
   },
   "repository": {
     "type": "git",

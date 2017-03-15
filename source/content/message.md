@@ -1,3 +1,4 @@
-# Attention Users
+# Attention Users of East/West cloud.gov
 
-Our application servers are experiencing heavy load. Sorry for the degraded experience.
+Your application is in a sandbox environment. It will be destroyed in X days.
+Please contact us in #cloud-gov-support.
