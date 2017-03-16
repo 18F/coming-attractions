@@ -80,7 +80,7 @@
       </div>
       <div class="island">
         <div class="island">
-          <p>East West environment (<a href="https://cloud.gov/docs/apps/govcloud/#documentation-for-east-west-and-govcloud">what's this?</a>)</p>
+          <p>East/West environment (<a href="https://cloud.gov/docs/apps/govcloud/#documentation-for-east-west-and-govcloud">what's this?</a>)</p>
         </div>
 
         <div class="island-content">
